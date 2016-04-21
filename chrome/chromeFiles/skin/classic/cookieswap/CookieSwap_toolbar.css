@@ -1,0 +1,9 @@
+#cookieswap-toolbar-button {
+  -moz-box-orient: horizontal !important;
+}
+
+
+#cookieswap-toolbar-button > .toolbarbutton-text {
+  display: inline;
+  -moz-padding-start: 3px;
+}
