@@ -18,4 +18,5 @@ Installation
 Only signed extensions can be added to Firefox now (see [this] (https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox?as=u&utm_source=inproduct) for details)
 
 To temporarily disable signature validation:
-`about:config` and then set `xpinstall.signatures.required` to `false`
+In the Firefox URL bar type `about:config` and then set `xpinstall.signatures.required` to `false`
+Once set, you can just drop the XPI file you built above onto Firefox to install it.

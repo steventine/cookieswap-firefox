@@ -306,6 +306,7 @@ function cookieswap_profileChangeSelected(profileID)
    cookieswap_dbg("START switchProfile to " + profileID + " reload=" + gReloadOnProfileChange);
 
    gCsProfileMgr.currentProfile = profileID;
+   var nsIWebNavigation = Components.interfaces.nsIWebNavigation;
 
    //The only reason this should fail is if the ProfileManager 
    //  couldn't swap to the requested profile
