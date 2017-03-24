@@ -26,6 +26,7 @@
     <em:creator>Steven Tine</em:creator>
     <em:homepageURL>http://cookieSwap.mozdev.org</em:homepageURL>
     <em:iconURL>chrome://cookieswap/skin/CookieSwap.png</em:iconURL>
+    <em:multiprocessCompatible>true</em:multiprocessCompatible> 
   </Description>      
 </RDF>
 
