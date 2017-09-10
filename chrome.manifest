@@ -1,7 +1,0 @@
-content     cookie_swap              chrome/chromeFiles/content/
-skin        cookieswap  classic/1.0  chrome/chromeFiles/skin/classic/cookieswap/
-resource    cookieswap_res           chrome/chromeFiles/resource/
-overlay chrome://browser/content/browser.xul chrome://cookie_swap/content/cookieSwap.xul
-style chrome://global/content/customizeToolbar.xul chrome://cookieswap/skin/CookieSwap_toolbar.css
-
-

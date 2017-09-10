@@ -1,22 +1,9 @@
-# cookieswap-firefox
-CookieSwap Firefox Extension
-============================
-Repository for the [CookieSwap] (https://addons.mozilla.org/en-US/firefox/addon/cookieswap/) Firefox extension/add-on
+# list-cookies
 
+## What it does
 
-Building
---------
-```
-./build.sh    (which uses 'zip') or
-```
-```
-./build_7z.sh   (which uses 7zip)
-```
+This extensions list the cookies in the active tab.
 
-Installation
-------------
-Only signed extensions can be added to Firefox now (see [this] (https://support.mozilla.org/en-US/kb/add-on-signing-in-firefox?as=u&utm_source=inproduct) for details)
+# What it shows
 
-To temporarily disable signature validation:
-In the Firefox URL bar type `about:config` and then set `xpinstall.signatures.required` to `false`
-Once set, you can just drop the XPI file you built above onto Firefox to install it.
+Demonstration of the getAll() function in the cookie API
