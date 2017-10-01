@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://cookieswap/skin/CookieSwap_toolbar.css" type="text/css"?>
+
+<!-- Overylay start...give it a name -->
+<overlay id="cookieSwapOverlay" 
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+   <!-- "cookie_swap" is a reference from chrome.manifest where the chrome directory is referenced-->
+   <script type="application/x-javascript" src="chrome://cookie_swap/content/csLogger.js"></script>
+   <script type="application/x-javascript" src="chrome://cookie_swap/content/cookieSwap.js"></script>
+   <script type="application/x-javascript" src="chrome://cookie_swap/content/ffComponents.js"></script>
+   <script type="application/x-javascript" src="chrome://cookie_swap/content/profileUI.js"></script>
+   <script language="JavaScript">
+      //Catch the Load event to init cookieSwap
+      try{window.addEventListener("load", cookieswap_init, true);}catch(e){}
+   </script>
+
+   <!-- Capture what item we are overlaying...the existing "status-bar" item
+        NOTE: everything from this point on looks exactly like how the original
+        "status-bar" item (not overlay) would be constructed. -->
+   <statusbar id="status-bar" class="chromeclass-status">
+      <!-- "context" is the left click popup panel used 
+           "popup" is the right click popup panel used -->
+      <statusbarpanel id="cookieSwap-panel" 
+         tooltip="cookieswap-tooltip"
+	 popup="cookie-element-list"
+	 context="cookie-element-list"
+         ondblclick="cookieswap_statusBarDblClick()" >
+         <hbox>
+             <image id="cookieswap-status-bar-icon" src="chrome://cookieswap/skin/CookieSwap_tinyicon.png" />
+             <label id="cookieswap-label" value="CookieSwap" />
+         </hbox>
+      </statusbarpanel>
+   </statusbar>
+
+   <!--Toolbar icon: 
+         -->
+  <toolbarpalette id="BrowserToolbarPalette">
+    <toolbarbutton id="cookieswap-toolbar-button"
+      class="toolbarbutton-1 chromeclass-toolbar-additional" 
+      label="CookieSwap"
+      title="CookieSwap"
+      alwaysShowLabel="true"
+      tooltip="cookieswap-tooltip"
+      popup="cookie-element-list"
+      context="cookie-element-list"
+      ondblclick="cookieswap_statusBarDblClick()"
+      image="chrome://cookieswap/skin/CookieSwap_tinyicon.png"	  
+     />
+    <!-- More buttons here. -->
+  </toolbarpalette>
+
+   <popupset id="mainPopupSet">
+      <menupopup id="cookie-element-list">
+
+         <menuseparator id="cookie-profile-list-separator" />
+
+         <menuitem id="cookieswap-menu-remove-all-cookies" label="Remove cookies" 
+                   oncommand="cookieswap_UiRemoveAllCookies()" />
+         <menuitem id="cookieswap-menu-remove-all-profile-cookies" label="Remove cookies (all profiles)" 
+                   oncommand="cookieswap_UiRemoveAllCookiesInAllProfiles()" />
+         <menuitem id="cookieswap-menu-manage-profiles" label="Manage profiles"    
+                   oncommand="cookieswap_loadProfMgrWin()" />
+         <menuitem id="cookieswap-menu-options" label="Options"    
+                   oncommand="cookieswap_loadOptionsWin()" />
+         <menuitem id="cookieswap-menu-help" label="Help"    
+                   oncommand="cookieswap_loadHelpTab()" />
+         <menuitem id="cookieswap-menu-about" label="About"    
+                   oncommand="cookieswap_loadAboutWin()" />
+         <!--  This was an idea that has been requested numerous times...a time to auto swap profiles.
+               It's not completely working, so commented out at this time.  The only problem
+               with it at this point is that you must start and stop the time from the same window
+               (it doesn't work across windows)...use at your own risk.
+         <menuitem label="Set auto-switch timer"    oncommand="cookieswap_promptForPeriodicTimer()" />
+         -->
+      </menupopup>
+      
+      <tooltip id="cookieswap-tooltip" insertafter="backMenu">
+         <vbox flex="1">
+             <label id="cookieswap-tooltip0" value="CookieSwap:"/>
+             <label id="cookieswap-tooltip1" value="Click to select a new profile"/>
+             <label id="cookieswap-tooltip3" value="-- Current profile: --"/>
+	     <label id="cookieswap-tooltip-active-profile" value="CookieSwap"/>
+         </vbox>
+      </tooltip>
+   </popupset>
+   
+</overlay>
